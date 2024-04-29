@@ -1,0 +1,20 @@
+
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+
+    <div class="row">
+      <% if(searchResults != '') { %>
+        <% searchResults.forEach(function (reserva, index) { %>
+          
+          <a href="/dashboard/item/<%= reserva._id %>">
+          <h4><%= reserva.title %></h4>
+          </a>
+  
+        <% }) %>
+      <% } else { %>
+        <p>Nenhuma reserva foi encontrada.</p>
+      <% } %>
+  
+    </div>
+  
+  </div>
+  
