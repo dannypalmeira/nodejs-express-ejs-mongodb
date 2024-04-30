@@ -1,0 +1,69 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+
+    <div class="row mb-4">
+      <div class="col">
+        <h1 class="h3">Aqui estão os espaços disponíveis.<br>Faça o login para reservar o seu!</h1>
+      </div>
+    </div>
+  
+    <div class="row">
+      <% if (espacos.length > 0) { for(var i=0; i < espacos.length; i++) { %>
+        <div class="col-sm-3 mb-4">
+          <div class="card border-primary" style="min-height: 210px">
+            <a href="/espacos/item/<%= espacos[i]._id %>" class="card-body text-decoration-none">
+              <img src="<%= espacos[i].image %>">
+              <h5 class="card-title"><%= espacos[i].nome %></h5>
+              <p class="card-text"><%= espacos[i].descricao %></p>
+              <p class="card-text fw-bold"><%= espacos[i].local %></p>
+              <p class="card-text"><%= espacos[i].capacidade %> pessoas</p>
+            </a>
+          </div>
+        </div>
+      <%  }} else { %>
+        <div class="row">
+          <div class="col-3">
+            <img src="/img/human-3.svg" alt="Human pointing hand toward a create button">
+          </div>
+          <div class="col mt-md-4">
+            <h2>Okay...</h2>
+            <h4>Let's start with your first note!<br/><br/>
+              <a href="/espacos/add">Create one!</a>
+            </h4>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  
+    <% if(espacos.length > 0) { %>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center mt-5">
+          <% if(current == 1) { %>
+            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
+          <% } else { %>
+            <li class="page-item"><a class="page-link" href="/espacos">Primeira</a></li>
+          <% }  %>
+          <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+          <% if (i !== 1 ) { %>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+          <% } %>
+          <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+            <% if(i == current ) { %>
+              <li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
+            <% } else { %>
+              <li class="page-item"><a class="page-link" href="/espacos/?page=<%= i %>"><%= i %></a></li>
+            <% } %>
+            <% if(i == Number(current) + 4 && i < pages) { %>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <% } %>
+          <% } %>
+          <% if (current == pages) { %>
+              <li class="page-item disabled"><a class="page-link">Próxima</a></li>
+          <% } else { %>
+              <li class="page-item"><a href="/espacos/?page=<%= pages %>" class="page-link">Última</a></li>
+          <% } %>
+        </ul>
+      </nav>
+  
+    <% } %>
+  
+  </div>
