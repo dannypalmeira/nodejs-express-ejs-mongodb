@@ -1,9 +1,8 @@
 const Espacos = require("../models/Espacos");
-const Reservas = require("../models/Reservas");
 const mongoose = require("mongoose");
 
 exports.espacos = async (req, res) => {
-    let perPage = 12;
+    let perPage = 6;
     let page = req.query.page || 1;
 
     const locals = {
@@ -28,11 +27,12 @@ exports.espacos = async (req, res) => {
         .limit(perPage)
         .exec();
 
-        const count = await Espacos.countDocuments();
+        const count = await Espacos.count();
 
-        res.render('espacos', {
+        res.render("espacos/index", {
             locals,
             espacos,
+            layout: "../views/layouts/espacos",
             current: page,
             pages: Math.ceil(count / perPage)
         });
@@ -41,3 +41,33 @@ exports.espacos = async (req, res) => {
         console.log(error);
     }
 };
+
+exports.espacosViewNote = async (req, res) => {
+    try {
+        const espaco = await Espacos.findById(req.params.id);
+    
+        if (espaco) {
+          res.render("espacos/view-espaco", {
+            espacoID: req.params.id, // Change espacosID to espacoID here
+            espaco, // Change espacos to espaco here
+            layout: "../views/layouts/espacos",
+          });
+        } else {
+          res.send("Space not found.");
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+  exports.espacosUpdateNote = async (req, res) => {
+    try {
+      await Reserva.findOneAndUpdate(
+        { _id: req.params.id },
+        { nome: req.body.nome, body: req.body.body, updatedAt: Date.now() });
+      res.redirect("/espacos");
+    } catch (error) {
+      console.log(error);
+    }
+  };
