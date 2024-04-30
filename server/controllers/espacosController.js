@@ -12,12 +12,15 @@ exports.espacos = async (req, res) => {
     };
 
     try {
-        const reserva = await Reservas.aggregate([
+        const espacos = await Espacos.aggregate([
             { $sort: { updatedAt: -1 } },
             {
                 $project: {
-                    title: { $substr: [ "$title", 0, 30 ] },
-                    body: { $substr: [ "$body", 0, 100 ] },
+                    nome: { $substr: [ "$nome", 0, 30 ] },
+                    descricao: { $substr: [ "$descricao", 0, 2000 ] },
+                    image: { $substr: [ "$image", 0, 100 ] },
+                    local: { $substr: [ "$local", 0, 100 ] },
+                    capacidade: { $substr: [ "$capacidade", 0, 3 ] },
                 },
             }
         ])
@@ -25,11 +28,11 @@ exports.espacos = async (req, res) => {
         .limit(perPage)
         .exec();
 
-        const count = await Reservas.countDocuments();
+        const count = await Espacos.countDocuments();
 
         res.render('espacos', {
             locals,
-            reserva,
+            espacos,
             current: page,
             pages: Math.ceil(count / perPage)
         });
