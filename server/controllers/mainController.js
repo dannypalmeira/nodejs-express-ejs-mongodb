@@ -20,6 +20,25 @@ exports.about = async (req, res) => {
     res.render('about', locals);
 }
 
+<<<<<<< HEAD
+=======
+exports.login = async (req, res) => {
+    const locals = {
+        title: "Login - Reservas | Grupo O",
+        description: "Página de Reservas"
+    }
+    res.render('login', locals);
+}
+
+exports.signup = async (req, res) => {
+    const locals = {
+        title: "Cadastro - Reservas | Grupo O",
+        description: "Página de Reservas"
+    }
+    res.render('signup', locals);
+}
+
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
 exports.dashboard = async (req, res) => {
     const locals = {
         title: "Dashboard - Reservas | Grupo O",

@@ -2,7 +2,11 @@
 
     <div class="row mb-4">
       <div class="col">
+<<<<<<< HEAD
         <h1>Olá, <%= userName %></h1>
+=======
+        <h1>Hey, <%= userName %></h1>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
       </div>
       <div class="col text-end">
         <a href="/dashboard/add" class="btn btn-primary">+ Novo</a>
@@ -24,7 +28,11 @@
           <div class="col mt-md-4">
             <h2>Okay...</h2>
             <h4>Você ainda não fez nenhuma reserva.<br/><br/>
+<<<<<<< HEAD
               <a href="/espacos">Dê uma olhada nos nossos espaços!</a>
+=======
+              <a href="/dashboard/add">Create one!</a>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
             </h4>
           </div>
         </div>
@@ -35,7 +43,11 @@
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center mt-5">
           <% if(current == 1) { %>
+<<<<<<< HEAD
             <li class="page-item"><a class="page-link disabled" href="#">Primeira</a></li>
+=======
+            <li class="page-item disabled"><a class="page-link" href="#">Primeira</a></li>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           <% } else { %>
             <li class="page-item"><a class="page-link" href="/dashboard">Primeira</a></li>
           <% }  %>
@@ -45,7 +57,11 @@
           <% } %>
           <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
             <% if(i == current ) { %>
+<<<<<<< HEAD
               <li class="page-item"><a class="page-link disabled" href="#"><%= i %></a></li>
+=======
+              <li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
             <% } else { %>
               <li class="page-item"><a class="page-link" href="/dashboard/?page=<%= i %>"><%= i %></a></li>
             <% } %>
@@ -54,7 +70,11 @@
             <% } %>
           <% } %>
           <% if (current == pages) { %>
+<<<<<<< HEAD
               <li class="page-item disabled"><a class="page-link">Última</a></li>
+=======
+              <li class="page-item disabled"><a class="page-link">Próxima</a></li>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           <% } else { %>
               <li class="page-item"><a href="/dashboard/?page=<%= pages %>" class="page-link">Última</a></li>
           <% } %>
@@ -63,4 +83,8 @@
   
     <% } %>
   
+<<<<<<< HEAD
   </div>
+=======
+  </div>
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59

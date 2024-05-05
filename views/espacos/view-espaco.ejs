@@ -4,31 +4,27 @@
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
-            <li class="breadcrumb-item active"><%= reserva.title %></li>
+            <li class="breadcrumb-item"><a href="/espacos">Espaço</a></li>
+            <li class="breadcrumb-item active"><%= espaco.nome %></li>
           </ol>
         </nav>
         <div class="col d-flex justify-content-between align-items-center">
-          <h1 class="h3">Ver Reserva</h1>
+          <h1 class="h3">Ver espaço</h1>
           <button type="button" class="btn btn-danger me-2" data-bs-toggle="modal" id="deleteButton" data-bs-target="#deleteModal">
-<<<<<<< HEAD
-            Cancelar Reserva
-=======
             Delete
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           </button>
         </div>
       </div>
     </div>
   
   
-    <form action="/dashboard/item/<%= reserva._id %>?_method=PUT" method="POST" class="position-relative">
+    <form action="/espacos/item/<%= espaco._id %>?_method=PUT" method="POST" class="position-relative">
       <div class="form-group mb-4 position-absolute" style="left:1px; top:1px; right: 1px;">
-        <input type="text" class="form-control fw-bold border-0 fs-4" id="title" name="title" value="<%= reserva.title %>" placeholder="Title">
+        <input type="text" class="form-control fw-bold border-0 fs-4" id="nome" name="nome" value="<%= espaco.nome %>" placeholder="Nome">
       </div>
   
       <div class="form-group mb-4">
-        <textarea class="form-control pt-5 fs-4" id="body" name="body" placeholder="Take a note..." rows="12"><%= reserva.body %></textarea>
+        <textarea class="form-control pt-5 fs-4" id="descricao" name="descricao" placeholder="Take a note..." rows="12"><%= espaco.descricao %></textarea>
       </div>
   
       <div class="form-group">
@@ -45,35 +41,22 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-<<<<<<< HEAD
-          <h5 class="modal-title">Cancelar Reserva</h5>
-=======
           <h5 class="modal-title">You are about to delete a note</h5>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <p>
-<<<<<<< HEAD
-            Cancelar a reserva para <b class="fw-bold"><%= reserva.title %></b><br/>
-            Você tem certeza?
-=======
-            This will delete your note <b class="fw-bold"><%= reserva.title %></b><br/>
+            This will delete your note <b class="fw-bold"><%= espaco.nome %></b><br/>
             Are you sure?
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
     
-          <form action="/dashboard/item-delete/<%= reserva._id %>?_method=DELETE" method="POST" class="position-relative">
-<<<<<<< HEAD
-            <button type="submit" class="btn btn-danger">Sim, excluir reserva</button>
-=======
-            <button type="submit" class="btn btn-primary">Excluir Reserva</button>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
+          <form action="/espacos/item-delete/<%= espaco._id %>?_method=DELETE" method="POST" class="position-relative">
+            <button type="submit" class="btn btn-primary">Excluir espacos</button>
           </form>
           
         </div>

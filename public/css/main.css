@@ -1,7 +1,10 @@
 :root {
   --background-color: #FFC700;
   --bs-primary-rgb: #212529;
+<<<<<<< HEAD
   --bs-link-color: #212529;
+=======
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
 }
 
 body {
@@ -121,4 +124,8 @@ header {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59

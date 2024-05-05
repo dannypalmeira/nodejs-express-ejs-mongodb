@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nodejs Express EJS MongoDB
 
 ## Udates
@@ -21,4 +22,6 @@ $ npm install
 $ npm start
 ```
 
+=======
+>>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
 # nodejs-express-ejs-mongodb
