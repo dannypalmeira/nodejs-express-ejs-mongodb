@@ -6,11 +6,7 @@ const ReservaSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'Espacos'
   }, */
-<<<<<<< HEAD
   nome: {
-=======
-  user: {
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
     type: Schema.ObjectId,
     ref: 'User'
   },

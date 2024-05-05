@@ -1,7 +1,6 @@
 <div class="container-fluid container-fluid-custom pb-5 mb-5">
 
     <div class="row mb-4">
-<<<<<<< HEAD
       <% if(user){ %>
       <div class="col">
         <h1 class="h3">Aqui estão os espaços disponíveis.</h1>
@@ -23,23 +22,6 @@
               <p class="card-text fw-bold"><%= espaco[i].local %></p>
               <p class="card-text">Capacidade: <%= espaco[i].capacidade %> pessoas</p>
               <button type="button" class="btn btn-outline-dark btn-sm">Ver detalhes</button>
-=======
-      <div class="col">
-        <h1 class="h3">Aqui estão os espaços disponíveis.<br>Faça o login para reservar o seu!</h1>
-      </div>
-    </div>
-  
-    <div class="row">
-      <% if (espacos.length > 0) { for(var i=0; i < espacos.length; i++) { %>
-        <div class="col-sm-3 mb-4">
-          <div class="card border-primary" style="min-height: 210px">
-            <a href="/espacos/item/<%= espacos[i]._id %>" class="card-body text-decoration-none">
-              <img src="<%= espacos[i].image %>">
-              <h5 class="card-title"><%= espacos[i].nome %></h5>
-              <p class="card-text"><%= espacos[i].descricao %></p>
-              <p class="card-text fw-bold"><%= espacos[i].local %></p>
-              <p class="card-text"><%= espacos[i].capacidade %> pessoas</p>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
             </a>
           </div>
         </div>
@@ -58,19 +40,11 @@
       <% } %>
     </div>
   
-<<<<<<< HEAD
     <% if(espaco.length > 0) { %>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center mt-5">
           <% if(current == 1) { %>
             <li class="page-item disabled"><a class="page-link" href="#">Primeira</a></li>
-=======
-    <% if(espacos.length > 0) { %>
-      <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center mt-5">
-          <% if(current == 1) { %>
-            <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           <% } else { %>
             <li class="page-item"><a class="page-link" href="/espacos">Primeira</a></li>
           <% }  %>
@@ -80,11 +54,7 @@
           <% } %>
           <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
             <% if(i == current ) { %>
-<<<<<<< HEAD
               <li class="page-item"><a class="page-link disabled" href="#"><%= i %></a></li>
-=======
-              <li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
             <% } else { %>
               <li class="page-item"><a class="page-link" href="/espacos/?page=<%= i %>"><%= i %></a></li>
             <% } %>
@@ -93,11 +63,7 @@
             <% } %>
           <% } %>
           <% if (current == pages) { %>
-<<<<<<< HEAD
               <li class="page-item disabled"><a class="page-link">Última</a></li>
-=======
-              <li class="page-item disabled"><a class="page-link">Próxima</a></li>
->>>>>>> 91f3ddd5ae7d750f4fb0f33f07a56fd7b622ff59
           <% } else { %>
               <li class="page-item"><a href="/espacos/?page=<%= pages %>" class="page-link">Última</a></li>
           <% } %>
