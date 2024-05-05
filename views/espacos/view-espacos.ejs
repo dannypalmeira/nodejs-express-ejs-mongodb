@@ -1,0 +1,57 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+
+    <div class="row mb-4">
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/espacos">Espaços</a></li>
+            <li class="breadcrumb-item active"><%= espaco.nome %></li>
+          </ol>
+        </nav>
+        <div class="col d-flex justify-content-between align-items-center">
+          <h1 class="h3"><%= espaco.nome %></h1>
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="card border-primary card-body" style="min-height: 210px">
+            <div><img src="<%= espaco.image %>"></div>
+            <div>
+              <h5 class="card-title"><%= espaco.nome %></h5>
+              <p class="card-text"><%= espaco.descricao %></p>
+              <p class="card-text fw-bold"><%= espaco.local %></p>
+              <p class="card-text"><%= espaco.capacidade %> pessoas</p>
+            </div>
+          </div>
+  
+  </div>
+  
+  
+  
+  <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Excluir Espaço</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Cancelar o espaço <b class="fw-bold"><%= espaco.nome %></b><br/>
+            Você tem certeza?
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+    
+          <form action="/espacos/item-delete/<%= espaco._id %>?_method=DELETE" method="POST" class="position-relative">
+            <button type="submit" class="btn btn-danger">Excluir espaço</button>
+          </form>
+          
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,6 +1,7 @@
 :root {
   --background-color: #FFC700;
   --bs-primary-rgb: #212529;
+  --bs-link-color: #212529;
 }
 
 body {
@@ -15,6 +16,13 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Unbounded', cursive;
   font-weight: 800;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  padding-bottom: 20px;
+  border-radius: 10px;
 }
 
 header {

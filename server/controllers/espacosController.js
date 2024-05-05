@@ -1,9 +1,8 @@
 const Espacos = require("../models/Espacos");
-const Reservas = require("../models/Reservas");
 const mongoose = require("mongoose");
 
 exports.espacos = async (req, res) => {
-    let perPage = 12;
+    let perPage = 6;
     let page = req.query.page || 1;
 
     const locals = {
@@ -12,12 +11,15 @@ exports.espacos = async (req, res) => {
     };
 
     try {
-        const reserva = await Reservas.aggregate([
+        const espaco = await Espacos.aggregate([
             { $sort: { updatedAt: -1 } },
             {
                 $project: {
-                    title: { $substr: [ "$title", 0, 30 ] },
-                    body: { $substr: [ "$body", 0, 100 ] },
+                    nome: { $substr: [ "$nome", 0, 30 ] },
+                    descricao: { $substr: [ "$descricao", 0, 300 ] },
+                    image: { $substr: [ "$image", 0, 2000 ] },
+                    local: { $substr: [ "$local", 0, 100 ] },
+                    capacidade: { $substr: [ "$capacidade", 0, 3 ] },
                 },
             }
         ])
@@ -25,11 +27,12 @@ exports.espacos = async (req, res) => {
         .limit(perPage)
         .exec();
 
-        const count = await Reservas.countDocuments();
+        const count = await Espacos.count();
 
-        res.render('espacos', {
+        res.render("espacos/index", {
             locals,
-            reserva,
+            espaco,
+            layout: "../views/layouts/main",
             current: page,
             pages: Math.ceil(count / perPage)
         });
@@ -38,3 +41,63 @@ exports.espacos = async (req, res) => {
         console.log(error);
     }
 };
+
+exports.espacosView = async (req, res) => {
+    try {
+        const espaco = await Espacos.findById(req.params.id);
+        console.log(espaco);
+    
+        if (espaco) {
+          res.render("espacos/view-espacos", {
+            espacoID: req.params.id, 
+            espaco, 
+            layout: "../views/layouts/main",
+          });
+        } else {
+          res.send("Space not found.");
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+  exports.espacosUpdate = async (req, res) => {
+    try {
+      await Espacos.findOneAndUpdate(
+        { _id: req.params.id },
+        { nome: req.body.nome, descricao: req.body.descricao, updatedAt: Date.now() });
+      res.redirect("/espacos");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  exports.espacosSearch = async (req, res) => {
+    try {
+      res.render("espacos/search", {
+        searchResults: "",
+        layout: "../views/layouts/main",
+      });
+    } catch (error) {}
+  };
+  
+  exports.espacosSearchSubmit = async (req, res) => {
+    try {
+      let searchTerm = req.body.searchTerm;
+      const searchNoSpecialChars = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+  
+      const searchResults = await Espacos.find({
+        $or: [
+          { nome: { $regex: new RegExp(searchNoSpecialChars, "i") } },
+          { descricao: { $regex: new RegExp(searchNoSpecialChars, "i") } },
+        ]});
+  
+      res.render("espacos/search", {
+        searchResults,
+        layout: "../views/layouts/main",
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };

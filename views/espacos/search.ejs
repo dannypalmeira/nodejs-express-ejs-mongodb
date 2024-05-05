@@ -1,0 +1,19 @@
+<div class="container-fluid container-fluid-custom pb-5 mb-5">
+
+    <div class="row">
+      <% if(searchResults != '') { %>
+        <% searchResults.forEach(function (espacos, index) { %>
+          
+          <a href="/espacos/item/<%= espacos._id %>">
+          <h4><%= espacos.nome %></h4>
+          </a>
+  
+        <% }) %>
+      <% } else { %>
+        <p>Nenhuma reserva foi encontrada.</p>
+      <% } %>
+  
+    </div>
+  
+  </div>
+  

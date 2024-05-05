@@ -1,4 +1,4 @@
-# Nodejs User Management Express EJS MongoDB
+# Nodejs Express EJS MongoDB
 
 ## Udates
 
@@ -21,20 +21,4 @@ $ npm install
 $ npm start
 ```
 
-### YouTube Video & Article
-
-[YouTube Video](https://youtu.be/)
-
-[Read Article](https://raddy.dev/blog/)
-
-### YouTube Channel - Raddy
-
-[Subscribe to my YouTube Channel](https://www.youtube.com/channel/UCvXscyQ0cLzPZeNOeXI45Sw?sub_confirmation=1)
-
-### Website
-[www.raddy.dev](https://www.raddy.dev)
-
-### Donations
-[Buy me a Coffee](https://www.buymeacoffee.com/RaddyTheBrand)
-# nodejs-express-ejs-mongodb
 # nodejs-express-ejs-mongodb
